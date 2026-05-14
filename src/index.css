@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@theme {
+  --color-cafe-main: #6B2D14;
+  --color-cafe-dark: #2A1A14;
+  --color-cafe-cream: #F4E8D8;
+  --color-cafe-beige: #D9C2A7;
+  --color-cafe-white: #FFFDF9;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cafe-dark);
+    color: var(--color-cafe-cream);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cafe-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-cafe-main);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cafe-beige);
+}
+
+/* Utilities */
+@layer utilities {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)];
+  }
+  .glass-panel {
+    @apply bg-cafe-dark/80 backdrop-blur-lg border-b border-white/10;
+  }
+}
