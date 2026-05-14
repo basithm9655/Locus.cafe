@@ -49,39 +49,63 @@ const Loader = () => {
       <div className="relative z-10 flex flex-col items-center gap-5">
 
         {/* ── Logo with multi-stage animation ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={phase >= 2
-            ? { opacity: 1, y: 0, scale: 1 }
-            : {}}
-          transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
-          className="relative w-64 md:w-80"
-        >
-          {/* Glow behind logo — pulses after reveal */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={phase >= 3
-              ? { opacity: [0.4, 0.9, 0.4] }
-              : { opacity: 0 }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute inset-0 bg-cafe-main/30 blur-[40px] rounded-full scale-110"
-          />
+        <div className="relative flex items-center justify-center">
+          
+          {/* Animated SVG ring around the logo */}
+          <motion.svg
+            className="absolute z-0 w-80 h-80 md:w-96 md:h-96 text-cafe-main/40"
+            viewBox="0 0 100 100"
+            initial={{ rotate: -90 }}
+            animate={phase >= 1 ? { rotate: 270 } : {}}
+            transition={{ duration: 2.5, ease: 'easeInOut' }}
+          >
+            <motion.circle
+              cx="50"
+              cy="50"
+              r="48"
+              fill="transparent"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={phase >= 1 ? { pathLength: 1, opacity: 1 } : {}}
+              transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1] }}
+            />
+          </motion.svg>
 
-          {/* Shimmer sweep over the logo */}
           <motion.div
-            initial={{ x: '-120%', opacity: 0 }}
-            animate={phase >= 3 ? { x: '220%', opacity: [0, 0.5, 0] } : {}}
-            transition={{ duration: 1.2, delay: 0.3, ease: 'easeInOut' }}
-            className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 pointer-events-none z-10"
-          />
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            animate={phase >= 2
+              ? { opacity: 1, y: 0, scale: 1 }
+              : {}}
+            transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+            className="relative w-56 md:w-80"
+          >
+            {/* Glow behind logo — pulses after reveal */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={phase >= 3
+                ? { opacity: [0.4, 0.9, 0.4] }
+                : { opacity: 0 }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute inset-0 bg-cafe-main/30 blur-[40px] rounded-full scale-110"
+            />
 
-          <img
-            src="/logo.png"
-            alt="Cafe Locus"
-            className="relative z-10 w-full h-auto"
-            style={{ filter: 'drop-shadow(0 0 30px rgba(107,45,20,0.5))' }}
-          />
-        </motion.div>
+            {/* Shimmer sweep over the logo */}
+            <motion.div
+              initial={{ x: '-120%', opacity: 0 }}
+              animate={phase >= 3 ? { x: '220%', opacity: [0, 0.6, 0] } : {}}
+              transition={{ duration: 1.2, delay: 0.3, ease: 'easeInOut' }}
+              className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 pointer-events-none z-10"
+            />
+
+            <img
+              src="/logo.png"
+              alt="Cafe Locus"
+              className="relative z-10 w-full h-auto object-contain"
+              style={{ filter: 'drop-shadow(0 0 30px rgba(107,45,20,0.6))' }}
+            />
+          </motion.div>
+        </div>
 
         {/* Horizontal divider */}
         <motion.div

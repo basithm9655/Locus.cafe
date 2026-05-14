@@ -72,13 +72,20 @@ const Menu = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCat(cat)}
-                className={`px-6 py-2.5 rounded-full text-[11px] sm:text-xs tracking-[0.15em] uppercase font-semibold transition-all duration-400 border whitespace-nowrap ${
+                className={`relative px-6 py-2.5 rounded-full text-[11px] sm:text-xs tracking-[0.15em] uppercase font-semibold transition-colors duration-400 border whitespace-nowrap ${
                   activeCat === cat
-                    ? 'bg-cafe-main text-white border-cafe-main shadow-[0_0_30px_rgba(107,45,20,0.6)] scale-105'
+                    ? 'text-white border-transparent'
                     : 'text-cafe-beige/60 border-white/10 hover:border-cafe-main/30 hover:text-cafe-cream hover:bg-white/5 bg-[#110a08]/50'
                 }`}
               >
-                {cat}
+                {activeCat === cat && (
+                  <motion.div
+                    layoutId="activeCategory"
+                    className="absolute inset-0 bg-cafe-main rounded-full shadow-[0_0_20px_rgba(107,45,20,0.6)]"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{cat}</span>
               </button>
             ))}
           </motion.div>

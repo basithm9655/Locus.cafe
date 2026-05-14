@@ -113,21 +113,20 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 3.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 w-full max-w-xs sm:max-w-sm md:max-w-2xl mb-6 sm:mb-8 rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.07] bg-black/30 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+          className="grid grid-cols-2 md:grid-cols-4 w-full max-w-xs sm:max-w-sm md:max-w-2xl mb-8 sm:mb-10 rounded-2xl overflow-hidden border border-white/[0.08] bg-black/40 backdrop-blur-xl shadow-[0_10px_50px_rgba(0,0,0,0.6)]"
         >
           {stats.map(({ icon: Icon, val, sub }, i) => (
             <div
               key={i}
-              className={`flex flex-col items-center gap-1 py-4 sm:py-5 px-2 sm:px-3
-                ${i % 2 === 0 && i < 2 ? 'border-r border-white/[0.06]' : ''}
-                ${i === 1 ? '' : ''}
-                ${i === 2 ? 'border-r border-white/[0.06] border-t border-white/[0.06] md:border-t-0' : ''}
-                ${i === 3 ? 'border-t border-white/[0.06] md:border-t-0' : ''}
+              className={`flex flex-col items-center gap-1.5 py-4 sm:py-5 px-2 sm:px-3
+                ${i % 2 === 0 ? 'border-r border-white/[0.06]' : ''}
+                ${i === 1 ? 'md:border-r md:border-white/[0.06]' : ''}
+                ${i >= 2 ? 'border-t border-white/[0.06] md:border-t-0' : ''}
               `}
             >
-              <Icon className="text-cafe-main" size={14} strokeWidth={1.5} />
-              <span className="text-cafe-cream font-heading font-semibold text-xs sm:text-sm leading-tight text-center">{val}</span>
-              <span className="text-cafe-beige/35 text-[8px] sm:text-[9px] tracking-[0.08em] uppercase text-center leading-tight">{sub}</span>
+              <Icon className="text-cafe-main" size={16} strokeWidth={1.5} />
+              <span className="text-cafe-cream font-heading font-semibold text-sm sm:text-base leading-tight text-center">{val}</span>
+              <span className="text-cafe-beige/35 text-[9px] sm:text-[10px] tracking-[0.1em] uppercase text-center leading-tight">{sub}</span>
             </div>
           ))}
         </motion.div>
