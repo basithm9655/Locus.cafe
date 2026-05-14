@@ -60,27 +60,29 @@ const Menu = () => {
         </motion.div>
 
         {/* Category pills */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="flex flex-wrap justify-center gap-3 mb-14"
-        >
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCat(cat)}
-              className={`px-5 py-2 rounded-full text-xs tracking-[0.15em] uppercase font-medium transition-all duration-400 border ${
-                activeCat === cat
-                  ? 'bg-cafe-main text-white border-cafe-main shadow-[0_0_25px_rgba(107,45,20,0.5)]'
-                  : 'text-cafe-beige/50 border-white/10 hover:border-cafe-main/30 hover:text-cafe-cream bg-transparent'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </motion.div>
+        <div className="overflow-x-auto pb-4 mb-10 sm:mb-14 -mx-6 px-6 lg:mx-0 lg:px-0 hide-scrollbar">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="flex lg:flex-wrap justify-start lg:justify-center gap-3 w-max lg:w-auto"
+          >
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCat(cat)}
+                className={`px-6 py-2.5 rounded-full text-[11px] sm:text-xs tracking-[0.15em] uppercase font-semibold transition-all duration-400 border whitespace-nowrap ${
+                  activeCat === cat
+                    ? 'bg-cafe-main text-white border-cafe-main shadow-[0_0_30px_rgba(107,45,20,0.6)] scale-105'
+                    : 'text-cafe-beige/60 border-white/10 hover:border-cafe-main/30 hover:text-cafe-cream hover:bg-white/5 bg-[#110a08]/50'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </motion.div>
+        </div>
 
         {/* Menu grid */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

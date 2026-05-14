@@ -18,31 +18,31 @@ const Experience = () => {
         <div className="flex flex-col lg:flex-row gap-24 items-center">
 
           {/* Staggered parallax images */}
-          <div className="lg:w-1/2 relative h-[580px] w-full flex-shrink-0">
-            <motion.div style={{ y: yImg1 }} className="absolute left-0 top-0 w-[58%] z-10">
-              <div className="rounded-3xl overflow-hidden aspect-[3/4] shadow-[0_40px_80px_rgba(0,0,0,0.7)] border border-white/[0.06]">
-                <img src="/hero-bg.png" alt="Cafe ambience" className="w-full h-full object-cover brightness-75" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060302]/60 to-transparent" />
+          <div className="lg:w-1/2 relative h-[480px] sm:h-[580px] w-full flex-shrink-0 mb-10 lg:mb-0">
+            <motion.div style={{ y: yImg1 }} className="absolute left-0 sm:left-4 top-0 w-[60%] sm:w-[58%] z-10">
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden aspect-[3/4] shadow-[0_20px_50px_rgba(0,0,0,0.7)] sm:shadow-[0_40px_80px_rgba(0,0,0,0.7)] border border-white/[0.06]">
+                <img src="/hero-bg.png" alt="Cafe ambience" className="w-full h-full object-cover brightness-75 scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060302]/80 to-transparent" />
               </div>
             </motion.div>
 
-            <motion.div style={{ y: yImg2 }} className="absolute right-0 bottom-0 w-[52%] z-20">
-              <div className="rounded-3xl overflow-hidden aspect-square shadow-[0_50px_100px_rgba(0,0,0,0.8)] border border-cafe-main/10">
-                <img src="/hero-bg.png" alt="Coffee ritual" className="w-full h-full object-cover brightness-60" style={{ filter: 'sepia(0.2) saturate(1.3)' }} />
-                <div className="absolute inset-0 bg-cafe-main/15 mix-blend-overlay" />
+            <motion.div style={{ y: yImg2 }} className="absolute right-0 sm:right-4 bottom-8 sm:bottom-0 w-[55%] sm:w-[52%] z-20">
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden aspect-square shadow-[0_30px_60px_rgba(0,0,0,0.8)] sm:shadow-[0_50px_100px_rgba(0,0,0,0.8)] border border-cafe-main/20">
+                <img src="/hero-bg.png" alt="Coffee ritual" className="w-full h-full object-cover brightness-60 scale-110" style={{ filter: 'sepia(0.3) saturate(1.4)' }} />
+                <div className="absolute inset-0 bg-cafe-main/20 mix-blend-overlay" />
               </div>
             </motion.div>
 
             {/* Floating caption card */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="absolute bottom-16 left-1/4 z-30 px-5 py-4 rounded-2xl bg-black/50 border border-white/10 backdrop-blur-xl shadow-xl"
+              className="absolute bottom-4 sm:bottom-16 left-[10%] sm:left-1/4 z-30 px-4 py-3 sm:px-5 sm:py-4 rounded-xl sm:rounded-2xl bg-[#060302]/70 border border-white/10 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             >
-              <p className="text-cafe-cream text-sm font-medium">Coimbatore's Finest</p>
-              <p className="text-cafe-beige/40 text-[11px] tracking-widest uppercase mt-0.5">Since 2022</p>
+              <p className="text-cafe-cream text-xs sm:text-sm font-semibold tracking-wide">Coimbatore's Finest</p>
+              <p className="text-cafe-beige/50 text-[9px] sm:text-[11px] tracking-widest uppercase mt-0.5">Since 2022</p>
             </motion.div>
           </div>
 

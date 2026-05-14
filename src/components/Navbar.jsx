@@ -52,8 +52,8 @@ const Navbar = () => {
             <img
               src="/logo.png"
               alt="Cafe Locus"
-              className="h-8 sm:h-10 w-auto object-contain"
-              style={{ filter: 'drop-shadow(0 2px 10px rgba(107,45,20,0.4))' }}
+              className="h-10 sm:h-12 w-auto object-contain"
+              style={{ filter: 'drop-shadow(0 2px 14px rgba(107,45,20,0.6))' }}
             />
           </button>
 

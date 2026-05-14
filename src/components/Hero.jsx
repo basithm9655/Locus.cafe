@@ -84,8 +84,8 @@ const Hero = () => {
           initial={{ y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.4, delay: 2.5, ease: [0.76, 0, 0.24, 1] }}
-          className="w-36 sm:w-48 md:w-60 lg:w-72 mx-auto mb-3"
-          style={{ filter: 'drop-shadow(0 0 40px rgba(107,45,20,0.7)) drop-shadow(0 0 80px rgba(107,45,20,0.3))' }}
+          className="w-48 sm:w-56 md:w-64 lg:w-76 mx-auto mb-4"
+          style={{ filter: 'drop-shadow(0 0 50px rgba(107,45,20,0.8)) drop-shadow(0 0 80px rgba(107,45,20,0.4))' }}
         >
           <img src="/logo.png" alt="Cafe Locus" className="w-full h-auto object-contain" />
         </motion.div>
