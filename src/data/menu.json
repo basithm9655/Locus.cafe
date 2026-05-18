@@ -1,98 +1,10 @@
 [
-  { "id": 1, "category": "Large Plates", "name": "Asian Rice Bowl", "price": 549, "desc": "Classic Nasi goreng served with chicken satay, roasted peanuts, soft-boiled egg, pickled radish and prawn crackers.", "isVeg": false, "tag": "Signature", "img": "/hero-bg.png" },
-  { "id": 2, "category": "Large Plates", "name": "Pad Kra Pao (Tofu)", "price": 449, "desc": "Thai-style tofu stir-fried with basil and chillies, served over jasmine rice.", "isVeg": true, "tag": "Popular", "img": "/hero-bg.png" },
-  { "id": 3, "category": "Large Plates", "name": "Pad Kra Pao (Chicken)", "price": 479, "desc": "Thai-style minced chicken stir-fried with basil and chillies, served over jasmine rice.", "isVeg": false, "tag": "Bestseller", "img": "/hero-bg.png" },
-  { "id": 4, "category": "Large Plates", "name": "Thai Green Curry (Veg)", "price": 409, "desc": "Fragrant creamy coconut milk based curry with stir-fried vegetables, served with jasmine rice.", "isVeg": true, "tag": null, "img": "/hero-bg.png" },
-  { "id": 5, "category": "Large Plates", "name": "Thai Green Curry (Chicken)", "price": 459, "desc": "Fragrant creamy coconut milk based curry with stir-fried chicken, served with jasmine rice.", "isVeg": false, "tag": null, "img": "/hero-bg.png" },
-  { "id": 6, "category": "Large Plates", "name": "Soy Soba Noodles (Veg)", "price": 469, "desc": "Stir fried buckwheat noodles in a dark soy sauce, red chilli, onion and choice of mushroom.", "isVeg": true, "tag": null, "img": "/hero-bg.png" },
-  { "id": 7, "category": "Large Plates", "name": "Soy Soba Noodles (Chicken)", "price": 529, "desc": "Stir fried buckwheat noodles in a dark soy sauce, red chilli, onion and choice of chicken.", "isVeg": false, "tag": null, "img": "/hero-bg.png" },
-  { "id": 8, "category": "Large Plates", "name": "Lasagna (Veg)", "price": 589, "desc": "Classic lasagne layered with sauteed mushrooms and creamy bechamel served on a bed of pomodoro sauce.", "isVeg": true, "tag": null, "img": "/hero-bg.png" },
-  { "id": 9, "category": "Large Plates", "name": "Lasagna (Chicken)", "price": 599, "desc": "Classic lasagne layered with binder chicken ragout and creamy bechamel served on a bed of pomodoro sauce.", "isVeg": false, "tag": null, "img": "/hero-bg.png" },
-
-  { "id": 10, "category": "Small Plates", "name": "Chilli Cheese Toast", "price": 379, "desc": "Toasted Hokkaido bread layered with a blend of cream cheese and green chilli, topped with crisp garlic chips and fried green chillies.", "isVeg": true, "tag": "Bestseller", "img": "/hero-bg.png" },
-  { "id": 11, "category": "Small Plates", "name": "Creamy Veggie French Toast", "price": 399, "desc": "Hokkaido toast layered with creamy garlic-butter sauce, spinach, corn, mushrooms, almond flakes and confit cherry tomatoes.", "isVeg": true, "tag": null, "img": "/hero-bg.png" },
-
-  { "id": 12, "category": "Desserts", "name": "Old School Strawberry Rhubarb Pie", "price": 349, "desc": "Vanilla butter tart filled with almond cream, strawberry-rhubarb jam, and almond streusel. Served with Vanilla ice cream.", "isVeg": true, "tag": null, "img": "/dessert.png" },
-  { "id": 13, "category": "Desserts", "name": "Flourless Chocolate Cake", "price": 399, "desc": "A dark, decadent flourless chocolate base served with chocolate mousse, miso caramel, and miso chocolate chip cookie bits, finished with candied chilli cashews.", "isVeg": true, "tag": "Signature", "img": "/dessert.png" },
-  { "id": 14, "category": "Desserts", "name": "Orange & Strawberry", "price": 349, "desc": "Orange chiffon cake with strawberry compote, candied orange, and cream cheese mousse — bright, creamy, and refreshing.", "isVeg": true, "tag": "New", "img": "/dessert.png" },
-  { "id": 15, "category": "Desserts", "name": "Locus Chocolate Cake", "price": 399, "desc": "Deep, rich layers of chocolate sponge, dark chocolate ganache, silky milk chocolate cremeux, and dark chocolate mousse, balanced with a hint of caramel and candied cocoa nibs.", "isVeg": true, "tag": "Bestseller", "img": "/dessert.png" },
-  { "id": 16, "category": "Desserts", "name": "Basque Cheesecake", "price": 399, "desc": "A velvety Basque cheesecake with its signature caramelised top, paired with tangy lemon curd and a buttery almond crumble.", "isVeg": true, "tag": "Signature", "img": "/dessert.png" },
-  { "id": 17, "category": "Desserts", "name": "Churros", "price": 369, "desc": "Freshly fried churros coated in cinnamon sugar, served warm with silky caramel and dark fudge sauces.", "isVeg": true, "tag": "Popular", "img": "/dessert.png" },
-  { "id": 18, "category": "Desserts", "name": "Tiramisu", "price": 399, "desc": "Layers of espresso soaked sponge cake and silky mascarpone cream cheese, dusted with cocoa.", "isVeg": true, "tag": "Bestseller", "img": "/dessert.png" },
-
-  { "id": 19, "category": "Coffee & Tea", "name": "Espresso", "price": 189, "desc": "Rich, concentrated shot of espresso caffeinated by Blue Tokai Roasters.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 20, "category": "Coffee & Tea", "name": "Macchiato", "price": 229, "desc": "Espresso stained with a dollop of silky microfoam.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 21, "category": "Coffee & Tea", "name": "Cortado", "price": 229, "desc": "Equal parts espresso and warm silky milk.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 22, "category": "Coffee & Tea", "name": "Cafe Latte", "price": 229, "desc": "Double shot of espresso with steamed milk and a thin layer of foam.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 23, "category": "Coffee & Tea", "name": "Cafe Latte (Hazelnut)", "price": 249, "desc": "Cafe Latte infused with rich premium hazelnut syrup.", "isVeg": true, "tag": "Popular", "img": "/coffee.png" },
-  { "id": 24, "category": "Coffee & Tea", "name": "Cafe Latte (Caramel)", "price": 249, "desc": "Cafe Latte infused with sweet buttery caramel syrup.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 25, "category": "Coffee & Tea", "name": "Americano", "price": 209, "desc": "Double shot of espresso poured over hot water.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 26, "category": "Coffee & Tea", "name": "Cappuccino", "price": 229, "desc": "Espresso with equal parts steamed milk and deep milk foam.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 27, "category": "Coffee & Tea", "name": "Mocha", "price": 259, "desc": "Espresso combined with dark chocolate sauce and steamed milk.", "isVeg": true, "tag": "Popular", "img": "/coffee.png" },
-  { "id": 28, "category": "Coffee & Tea", "name": "Affogato", "price": 259, "desc": "A scoop of vanilla ice cream drowned in a hot shot of espresso.", "isVeg": true, "tag": "Chef's Pick", "img": "/coffee.png" },
-
-  { "id": 29, "category": "Coffee & Tea", "name": "V60 Pour Over (Amruthavarshini)", "price": 229, "desc": "Amruthavarshini Estate, Karnataka. Anaerobic Natural processed. Notes of Cherries, Pineapples and Roasted Almonds. Roast: Medium | Acidity: Medium | Bitterness: Medium", "isVeg": true, "tag": "Signature", "img": "/coffee.png" },
-  { "id": 30, "category": "Coffee & Tea", "name": "V60 Pour Over (Seetharagundu)", "price": 229, "desc": "Seetharagundu Estate, Kerala. Washed processed. Notes of Orange, Peach and Black Tea. Roast: Light | Acidity: Medium | Bitterness: Low", "isVeg": true, "tag": "New", "img": "/coffee.png" },
-
-  { "id": 31, "category": "Coffee & Tea", "name": "Black Tea", "price": 229, "desc": "Organic black tea leaves sourced from the high estates of the Nilgiris.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 32, "category": "Coffee & Tea", "name": "Green Tea", "price": 229, "desc": "Antioxidant-rich organic green tea sourced from the Nilgiris.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 33, "category": "Coffee & Tea", "name": "White Tea", "price": 249, "desc": "Delicate, minimally processed organic Nilgiri white tea.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 34, "category": "Coffee & Tea", "name": "Chamomile Tea", "price": 249, "desc": "Soothe-inducing organic chamomile herbal tea infusion.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-
-  { "id": 35, "category": "Beverages", "name": "Matcha Tender Coconut Water", "price": 349, "desc": "Pure Japanese Uji matcha whisked over fresh organic tender coconut water. Highly refreshing.", "isVeg": true, "tag": "Signature", "img": "/viet.png" },
-  { "id": 36, "category": "Beverages", "name": "Matcha Latte (Fruit Fusion)", "price": 369, "desc": "Premium Uji matcha over milk, infused with your choice of Strawberry, Mango or Blueberry compote.", "isVeg": true, "tag": "New", "img": "/viet.png" },
-  { "id": 37, "category": "Beverages", "name": "Smoked Sea Salt Matcha Latte", "price": 369, "desc": "A perfect balance of earthy matcha, sweet milk, and a pinch of smoked sea salt.", "isVeg": true, "tag": "Popular", "img": "/viet.png" },
-  { "id": 38, "category": "Beverages", "name": "Hojicha Latte", "price": 369, "desc": "Roasted Japanese green tea powder whisked with warm textured milk. Nutty, toasty and comforting.", "isVeg": true, "tag": null, "img": "/viet.png" },
-
-  { "id": 39, "category": "Beverages", "name": "Lemon Iced Tea", "price": 229, "desc": "Classic hand-shaken tea with fresh lemon juice and mint leaves over ice.", "isVeg": true, "tag": null, "img": "/viet.png" },
-  { "id": 40, "category": "Beverages", "name": "Peach Iced Tea", "price": 249, "desc": "Sweet, fragrant iced tea infused with organic peach nectar.", "isVeg": true, "tag": null, "img": "/viet.png" },
-  { "id": 41, "category": "Beverages", "name": "Passionfruit Iced Tea", "price": 249, "desc": "Zesty, tropical iced tea loaded with fresh passionfruit puree.", "isVeg": true, "tag": null, "img": "/viet.png" },
-
-  { "id": 42, "category": "Beverages", "name": "Kombucha - Cucumber Mint", "price": 329, "desc": "Raw, unpasteurized live probiotic drink fermented with refreshing cucumber and mint.", "isVeg": true, "tag": "New", "img": "/viet.png" },
-  { "id": 43, "category": "Beverages", "name": "Kombucha - Pineapple Rosemary", "price": 329, "desc": "Sparkling fermented probiotic kombucha tea infused with tropical pineapple and rosemary.", "isVeg": true, "tag": null, "img": "/viet.png" },
-
-  { "id": 44, "category": "Beverages", "name": "Cranberry Lemonade", "price": 229, "desc": "Sparkling lemonade with sweet-tart premium cranberry splash.", "isVeg": true, "tag": null, "img": "/viet.png" },
-  { "id": 45, "category": "Beverages", "name": "Litchi Blue Pea Lemonade", "price": 249, "desc": "Beautiful double-layered visual drink with organic litchi and blue pea flower tea.", "isVeg": true, "tag": "Signature", "img": "/viet.png" },
-  { "id": 46, "category": "Beverages", "name": "Passionfruit Lemonade", "price": 249, "desc": "Earthy sweet sparkling lemonade loaded with fresh tropical passionfruit seeds.", "isVeg": true, "tag": null, "img": "/viet.png" },
-
-  { "id": 47, "category": "Coffee & Tea", "name": "OG Cold Coffee", "price": 349, "desc": "Our signature rich, creamy double-espresso blended cold coffee.", "isVeg": true, "tag": "Bestseller", "img": "/coffee.png" },
-  { "id": 48, "category": "Coffee & Tea", "name": "Hazelnut Cold Coffee", "price": 359, "desc": "Rich double-espresso blended cold coffee infused with gourmet hazelnut.", "isVeg": true, "tag": null, "img": "/coffee.png" },
-  { "id": 49, "category": "Coffee & Tea", "name": "Mocha Frappe", "price": 369, "desc": "Decadent ice-blended coffee with rich dark chocolate, whipped cream, and chocolate sauce.", "isVeg": true, "tag": "Popular", "img": "/coffee.png" },
-
-  { "id": 50, "category": "Beverages", "name": "Hot Chocolate", "price": 359, "desc": "Thick Belgian dark chocolate melted in warm milk and served with toasted marshmallow.", "isVeg": true, "tag": "Bestseller", "img": "/viet.png" },
-  { "id": 51, "category": "Beverages", "name": "Cold Chocolate", "price": 359, "desc": "Rich, icy-cold blended Belgian chocolate milk shake.", "isVeg": true, "tag": null, "img": "/viet.png" },
-  { "id": 52, "category": "Beverages", "name": "Coke Float", "price": 229, "desc": "Chilled classic Coca-Cola served with a huge scoop of vanilla ice cream.", "isVeg": true, "tag": null, "img": "/viet.png" },
-
-  { "id": 53, "category": "Burgers & Sandwiches", "name": "Crispy Oyster Mushroom Burger", "price": 429, "desc": "Crispy spice-marinated oyster mushrooms glazed in hot honey in a brioche bun, with jalapeño cream cheese.", "isVeg": true, "tag": "Chef's Pick", "img": "/burger.png" },
-  { "id": 54, "category": "Burgers & Sandwiches", "name": "Hot Honey Fried Chicken Burger", "price": 449, "desc": "Crispy fried chicken glazed in spicy honey in a soft brioche bun, with sriracha mayo.", "isVeg": false, "tag": "Bestseller", "img": "/burger.png" },
-  { "id": 55, "category": "Burgers & Sandwiches", "name": "Aubergine Sandwich", "price": 389, "desc": "Panko-fried aubergine layered with miso baba ghanoush, roasted peppers and onions, in toasted Japanese milk bread.", "isVeg": true, "tag": "Signature", "img": "/burger.png" },
-  { "id": 56, "category": "Burgers & Sandwiches", "name": "Lamb Bulgogi Sandwich", "price": 699, "desc": "Fire-roasted lamb bulgogi with caramelised onion, stir-fried long beans, layered with gochujang butter, in Japanese milk bread.", "isVeg": false, "tag": "Signature", "img": "/burger.png" },
-
-  { "id": 57, "category": "Small Plates", "name": "Turkish Egg", "price": 359, "desc": "Poached eggs on creamy garlic yoghurt, topped with warm spiced chilli oil — a Turkish breakfast classic.", "isVeg": true, "tag": "Popular", "img": "/hero-bg.png" },
-  { "id": 58, "category": "Small Plates", "name": "Pumpkin-Scallion Wonton", "price": 389, "desc": "Roasted rosemary pumpkin-stuffed steam wontons tossed in a scallion relish and served with chilli oil.", "isVeg": true, "tag": "New", "img": "/hero-bg.png" },
-  { "id": 59, "category": "Small Plates", "name": "Chilli-Oil Chicken Wonton", "price": 399, "desc": "Steamed chicken wontons tossed with in-house chilli oil.", "isVeg": false, "tag": "Bestseller", "img": "/hero-bg.png" },
-  { "id": 60, "category": "Small Plates", "name": "Mushroom Galouti", "price": 419, "desc": "Slow cooked Mushroom paste spiced with Lucknowi garam masala and seared in ghee.", "isVeg": true, "tag": "Chef's Pick", "img": "/hero-bg.png" },
-  { "id": 61, "category": "Small Plates", "name": "Gobi Manchuri Crème Brulee", "price": 379, "desc": "Cauliflower stalk custard topped with gobi 65 and parmesan cheese.", "isVeg": true, "tag": "Signature", "img": "/hero-bg.png" },
-  { "id": 62, "category": "Small Plates", "name": "Mutton Sukka", "price": 699, "desc": "Mangalore-style mutton slow-cooked in robust spices and tossed with roasted coconut for a rich, coastal flavour.", "isVeg": false, "tag": "Signature", "img": "/hero-bg.png" },
-  { "id": 63, "category": "Small Plates", "name": "Mac & Cheese Croquettes", "price": 379, "desc": "Crumb fried mac & cheese cutlets stuffed with miso tomato relish and served with cheese sauce.", "isVeg": true, "tag": null, "img": "/hero-bg.png" },
-  { "id": 64, "category": "Small Plates", "name": "Locus Eggs Benny", "price": 409, "desc": "Our twist on the classic American breakfast — pepper chicken, poached eggs and hollandaise on toasted Brioche bun.", "isVeg": false, "tag": "Popular", "img": "/hero-bg.png" },
-  { "id": 65, "category": "Small Plates", "name": "Vietnamese Rolls", "price": 359, "desc": "Rice paper rolls stuffed with betel leaf, minced lemongrass & chicken, vermicelli & veggies. Served with nuoc cham.", "isVeg": false, "tag": "Bestseller", "img": "/hero-bg.png" },
-  { "id": 66, "category": "Small Plates", "name": "Korean Chicken Wings", "price": 429, "desc": "Crispy wings tossed in Korean BBQ sauce, served with sour cream.", "isVeg": false, "tag": null, "img": "/hero-bg.png" },
-  { "id": 67, "category": "Small Plates", "name": "Roasted Coconut Prawns", "price": 549, "desc": "Golden roasted coconut cooked with masala pan-fried prawns.", "isVeg": false, "tag": "Signature", "img": "/hero-bg.png" },
-  { "id": 68, "category": "Small Plates", "name": "Mangalore Ghee Roast (Mushroom)", "price": 499, "desc": "Mushrooms slow cooked in ghee and byadagi chillis, a Mangalorean classic.", "isVeg": true, "tag": null, "img": "/hero-bg.png" },
-  { "id": 69, "category": "Small Plates", "name": "Mangalore Ghee Roast (Chicken)", "price": 549, "desc": "Chicken slow cooked in ghee and byadagi chillis, a Mangalorean classic.", "isVeg": false, "tag": "Bestseller", "img": "/hero-bg.png" },
-
-  { "id": 70, "category": "Viennoisserie", "name": "Pain Au Chocolat 2.0", "price": 319, "desc": "A reimagined classic with chocolate frangipane, dark chocolate pastry cream and shards of dark chocolate.", "isVeg": true, "tag": "New", "img": "/dessert.png" },
-  { "id": 71, "category": "Viennoisserie", "name": "Locus Almond Croissant", "price": 359, "desc": "A lush twice-baked croissant sandwich filled with almond cream, dark chocolate and crisp cocoa nibs.", "isVeg": true, "tag": "Bestseller", "img": "/dessert.png" },
-  { "id": 72, "category": "Viennoisserie", "name": "Strawberry Almond Cruffin", "price": 319, "desc": "Layers of almond cake and streusel, filled with Strawberry pastry cream and compote, topped with almond flakes.", "isVeg": true, "tag": null, "img": "/dessert.png" },
-  { "id": 73, "category": "Viennoisserie", "name": "Roasted Baby Potato Danish", "price": 309, "desc": "Chaat masala-roasted baby potatoes, caramelised onions, and dill infused sour cream, finished with chimichurri.", "isVeg": true, "tag": "Popular", "img": "/dessert.png" },
-  { "id": 74, "category": "Viennoisserie", "name": "Thakkali Chicken Danish", "price": 359, "desc": "Spiced chicken kheema with house-made tomato thokku, layered with pickled red onions and mint-coriander chutney.", "isVeg": false, "tag": "Chef's Pick", "img": "/dessert.png" },
-
-  { "id": 75, "category": "Small Plates", "name": "French Fries", "price": 249, "desc": "Crispy golden French fries served with spicy sriracha mayo.", "isVeg": true, "tag": null, "img": "/hero-bg.png" },
-  { "id": 76, "category": "Small Plates", "name": "Smashed Potatoes", "price": 299, "desc": "Twice-cooked baby potatoes tossed in peri-peri spice, parmesan and scallions, served with cheese dip.", "isVeg": true, "tag": "Popular", "img": "/hero-bg.png" },
-  { "id": 77, "category": "Small Plates", "name": "Fried Oyster Mushroom", "price": 309, "desc": "Crumb fried oyster mushroom dusted with spicy idly podi and peri-peri mix, served with sriracha mayo.", "isVeg": true, "tag": null, "img": "/hero-bg.png" },
-  { "id": 78, "category": "Small Plates", "name": "Zucchini Fries", "price": 309, "desc": "Crisp panko-fried zucchini tossed in peri-peri spice, served with sriracha mayo.", "isVeg": true, "tag": null, "img": "/hero-bg.png" },
-
-  { "id": 79, "category": "Small Plates", "name": "Somtam Salad", "price": 359, "desc": "A refreshing Thai salad of shredded green papaya tossed with lime, chilli and palm sugar — a sweet, sour, salty and spicy balance.", "isVeg": true, "tag": "New", "img": "/hero-bg.png" },
-  { "id": 80, "category": "Small Plates", "name": "Arugula & Parmesan Salad", "price": 369, "desc": "Fresh rocket leaves dressed in tangy balsamic and olive oil, topped with thin Parmesan shavings.", "isVeg": true, "tag": null, "img": "/hero-bg.png" }
+  { "id": 1, "category": "Coffee", "name": "Caramel Macchiato", "price": 240, "desc": "Vanilla syrup, espresso, steamed milk and a generous caramel drizzle.", "isVeg": true, "tag": "Bestseller", "img": "/coffee.png" },
+  { "id": 2, "category": "Coffee", "name": "Dark Mocha", "price": 280, "desc": "Rich espresso, bittersweet mocha sauce, and silky steamed milk.", "isVeg": true, "tag": "Chef's Pick", "img": "/coffee.png" },
+  { "id": 3, "category": "Burgers", "name": "Truffle Mushroom", "price": 350, "desc": "Premium beef patty, black truffle mayo, Swiss cheese & sautéed mushrooms.", "isVeg": false, "tag": "Signature", "img": "/burger.png" },
+  { "id": 4, "category": "Burgers", "name": "Classic Sliders", "price": 320, "desc": "Crispy chicken, house slaw, and spicy aioli in a brioche bun.", "isVeg": false, "tag": null, "img": "/burger.png" },
+  { "id": 5, "category": "Vietnamese", "name": "Iced Viet Coffee", "price": 220, "desc": "Dark roast drip coffee poured slowly over sweet condensed milk and ice.", "isVeg": true, "tag": "Popular", "img": "/viet.png" },
+  { "id": 6, "category": "Desserts", "name": "Matcha Tiramisu", "price": 290, "desc": "Matcha-soaked ladyfingers layered with silky mascarpone cream.", "isVeg": true, "tag": "New", "img": "/dessert.png" },
+  { "id": 7, "category": "Beverages", "name": "Yuzu Lemonade", "price": 180, "desc": "Sparkling lemonade infused with yuzu extract and fresh mint leaves.", "isVeg": true, "tag": null, "img": "/viet.png" },
+  { "id": 8, "category": "Beverages", "name": "Rose Cold Brew", "price": 240, "desc": "18-hour cold brewed coffee with rose water and a touch of honey.", "isVeg": true, "tag": "Seasonal", "img": "/coffee.png" }
 ]
