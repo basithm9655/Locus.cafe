@@ -117,21 +117,28 @@ const Menu = () => {
         
         {/* Floating Cart Button */}
         <AnimatePresence>
-          {totalItems > 0 && !isCartOpen && (
+          {!isCartOpen && (
             <motion.button
               initial={{ opacity: 0, scale: 0.8, y: 50 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8, y: 50 }}
-              onClick={() => setIsCartOpen(true)}
+              onClick={() => {
+                if (totalItems > 0) setIsCartOpen(true);
+                else document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="fixed bottom-8 right-8 z-50 bg-cafe-main text-white p-4 rounded-full shadow-[0_10px_40px_rgba(107,45,20,0.6)] flex items-center gap-3 hover:scale-105 transition-transform"
             >
               <div className="relative">
                 <ShoppingBag size={24} />
-                <span className="absolute -top-2 -right-2 bg-white text-cafe-main text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">
-                  {totalItems}
-                </span>
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-white text-cafe-main text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                    {totalItems}
+                  </span>
+                )}
               </div>
-              <span className="font-semibold hidden sm:inline">View Order</span>
+              <span className="font-semibold hidden sm:inline">
+                {totalItems > 0 ? 'View Order' : 'Order Now'}
+              </span>
             </motion.button>
           )}
         </AnimatePresence>
