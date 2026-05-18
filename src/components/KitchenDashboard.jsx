@@ -14,6 +14,8 @@ const KitchenDashboard = () => {
   const [orders, setOrders] = useState(mockOrders);
   const [loading, setLoading] = useState(false);
 
+  const [activeColumn, setActiveColumn] = useState('New'); // 'New', 'Preparing', 'Ready'
+
   const fetchOrders = async () => {
     if (!SCRIPT_URL) return;
     setLoading(true);
@@ -75,11 +77,33 @@ const KitchenDashboard = () => {
           </div>
         </div>
 
+        {/* Mobile Columns Navigator (visible only on mobile) */}
+        <div className="flex md:hidden bg-black/40 rounded-xl p-1 border border-white/10 mb-6 sticky top-4 z-20 backdrop-blur-md">
+          <button 
+            onClick={() => setActiveColumn('New')}
+            className={`flex-1 py-3 rounded-lg text-[10px] font-bold tracking-wider uppercase transition-all ${activeColumn === 'New' ? 'bg-cafe-main text-white' : 'text-cafe-beige/60'}`}
+          >
+            New ({newOrders.length})
+          </button>
+          <button 
+            onClick={() => setActiveColumn('Preparing')}
+            className={`flex-1 py-3 rounded-lg text-[10px] font-bold tracking-wider uppercase transition-all ${activeColumn === 'Preparing' ? 'bg-yellow-500/20 text-yellow-500 border border-yellow-500/30' : 'text-cafe-beige/60'}`}
+          >
+            Prep ({preparingOrders.length})
+          </button>
+          <button 
+            onClick={() => setActiveColumn('Ready')}
+            className={`flex-1 py-3 rounded-lg text-[10px] font-bold tracking-wider uppercase transition-all ${activeColumn === 'Ready' ? 'bg-green-500/20 text-green-500 border border-green-500/30' : 'text-cafe-beige/60'}`}
+          >
+            Ready ({readyOrders.length})
+          </button>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
           {/* NEW ORDERS COLUMN */}
-          <div className="flex flex-col gap-4">
-            <h3 className="text-cafe-cream/80 text-sm tracking-widest uppercase border-b border-cafe-main/30 pb-2">New ({newOrders.length})</h3>
+          <div className={`flex flex-col gap-4 ${activeColumn === 'New' ? 'flex' : 'hidden md:flex'}`}>
+            <h3 className="text-cafe-cream/80 text-sm tracking-widest uppercase border-b border-cafe-main/30 pb-2 hidden md:block">New ({newOrders.length})</h3>
             {newOrders.map(order => (
               <motion.div layout key={order.rowId} initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} className="bg-[#221510] rounded-xl border border-cafe-main/50 p-5 shadow-[0_0_15px_rgba(107,45,20,0.1)] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1 h-full bg-cafe-main"></div>
@@ -100,8 +124,8 @@ const KitchenDashboard = () => {
           </div>
 
           {/* PREPARING COLUMN */}
-          <div className="flex flex-col gap-4">
-            <h3 className="text-yellow-500/80 text-sm tracking-widest uppercase border-b border-yellow-500/30 pb-2">Preparing ({preparingOrders.length})</h3>
+          <div className={`flex flex-col gap-4 ${activeColumn === 'Preparing' ? 'flex' : 'hidden md:flex'}`}>
+            <h3 className="text-yellow-500/80 text-sm tracking-widest uppercase border-b border-yellow-500/30 pb-2 hidden md:block">Preparing ({preparingOrders.length})</h3>
             {preparingOrders.map(order => (
               <motion.div layout key={order.rowId} initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} className="bg-[#1a100c] rounded-xl border border-yellow-500/30 p-5">
                 <div className="flex justify-between items-start mb-4">
@@ -123,8 +147,8 @@ const KitchenDashboard = () => {
           </div>
 
           {/* READY COLUMN */}
-          <div className="flex flex-col gap-4">
-            <h3 className="text-green-500/80 text-sm tracking-widest uppercase border-b border-green-500/30 pb-2">Ready ({readyOrders.length})</h3>
+          <div className={`flex flex-col gap-4 ${activeColumn === 'Ready' ? 'flex' : 'hidden md:flex'}`}>
+            <h3 className="text-green-500/80 text-sm tracking-widest uppercase border-b border-green-500/30 pb-2 hidden md:block">Ready ({readyOrders.length})</h3>
             {readyOrders.map(order => (
               <motion.div layout key={order.rowId} initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} className="bg-[#1a100c] rounded-xl border border-green-500/20 p-5">
                 <div className="flex justify-between items-start mb-4">

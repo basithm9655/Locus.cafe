@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Users, Phone, IndianRupee, RefreshCw, CheckCircle, Clock } from 'lucide-react';
+import { Calendar, Users, Phone, IndianRupee, RefreshCw, CheckCircle, Clock, MessageSquare } from 'lucide-react';
 
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxLjFkHCq85bgUsFcVGflzvDCS4Fc30bGW0xK5aXVGBvMNAD6-XXvdDLhLWjCDqzoF2/exec";
 
@@ -151,35 +151,63 @@ const ReceptionDashboard = () => {
         {/* TAB CONTENT: RESERVATIONS */}
         {activeTab === 'reservations' && (
           <motion.div initial={{opacity: 0, y: 10}} animate={{opacity: 1, y: 0}} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {reservations.map((res, i) => (
-              <div key={i} className="bg-[#150d0a] rounded-xl border border-white/5 p-6 flex items-center justify-between">
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-xl font-bold text-cafe-cream">{res.name}</h4>
-                    <p className="text-cafe-beige/60 text-sm flex items-center gap-2 mt-1">
-                      <Phone size={14} /> {res.phone}
-                    </p>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="flex items-center gap-1.5 text-sm text-cafe-cream/80 bg-black/40 px-3 py-1.5 rounded-md border border-white/5">
-                      <Calendar size={14} className="text-cafe-main" />
-                      {res.date} • {res.time}
+            {reservations.map((res, i) => {
+              // Extract and clean phone number for direct WhatsApp integration
+              let cleanPhone = (res.phone || '').replace(/[^0-9]/g, '');
+              if (cleanPhone.length === 10) {
+                cleanPhone = '91' + cleanPhone; // Prefix Indian country code by default if 10-digit
+              }
+              const waUrl = `https://wa.me/${cleanPhone}`;
+
+              return (
+                <div key={i} className="bg-[#150d0a] rounded-xl border border-white/5 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                  <div className="space-y-4 flex-1">
+                    <div>
+                      <h4 className="text-xl font-bold text-cafe-cream">{res.name}</h4>
+                      <p className="text-cafe-beige/60 text-sm flex items-center gap-2 mt-1">
+                        <Phone size={14} /> {res.phone}
+                      </p>
                     </div>
-                    <div className="flex items-center gap-1.5 text-sm text-cafe-cream/80 bg-black/40 px-3 py-1.5 rounded-md border border-white/5">
-                      <Users size={14} className="text-cafe-main" />
-                      {res.people}
+                    
+                    <div className="flex flex-wrap gap-3">
+                      <div className="flex items-center gap-1.5 text-xs text-cafe-cream/80 bg-black/40 px-3 py-1.5 rounded-md border border-white/5">
+                        <Calendar size={12} className="text-cafe-main" />
+                        {res.date} • {res.time}
+                      </div>
+                      <div className="flex items-center gap-1.5 text-xs text-cafe-cream/80 bg-black/40 px-3 py-1.5 rounded-md border border-white/5">
+                        <Users size={12} className="text-cafe-main" />
+                        {res.people}
+                      </div>
+                    </div>
+
+                    {/* Direct Contact Action Buttons (Call / WhatsApp) */}
+                    <div className="flex items-center gap-2 pt-2">
+                      <a 
+                        href={`tel:${res.phone}`}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-cafe-main/15 border border-cafe-main/30 text-cafe-cream text-xs font-semibold hover:bg-cafe-main/35 transition-colors cursor-pointer"
+                      >
+                        <Phone size={12} className="text-cafe-main" /> Call Now
+                      </a>
+                      <a 
+                        href={waUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold hover:bg-green-500/25 transition-colors cursor-pointer"
+                      >
+                        <MessageSquare size={12} className="text-green-500" /> WhatsApp
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="text-left sm:text-right flex sm:flex-col items-start sm:items-end justify-between sm:justify-start w-full sm:w-auto gap-2 border-t sm:border-t-0 border-white/5 pt-4 sm:pt-0">
+                    <span className="text-xs text-cafe-beige/40 uppercase tracking-widest sm:block">Table Assigned</span>
+                    <div className="w-14 h-14 rounded-full border-2 border-cafe-main flex items-center justify-center bg-cafe-main/10 text-cafe-cream font-bold text-lg">
+                      {res.tableNo || '?'}
                     </div>
                   </div>
                 </div>
-                
-                <div className="text-right flex flex-col items-end gap-2">
-                  <span className="text-xs text-cafe-beige/40 uppercase tracking-widest">Table Assigned</span>
-                  <div className="w-16 h-16 rounded-full border-2 border-cafe-main flex items-center justify-center bg-cafe-main/10 text-cafe-cream font-bold text-xl">
-                    {res.tableNo || '?'}
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </motion.div>
         )}
 
