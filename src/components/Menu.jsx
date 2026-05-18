@@ -5,7 +5,7 @@ import localMenuItems from '../data/menu.json';
 
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxLjFkHCq85bgUsFcVGflzvDCS4Fc30bGW0xK5aXVGBvMNAD6-XXvdDLhLWjCDqzoF2/exec";
 
-const categories = ['All', 'Coffee', 'Burgers', 'Vietnamese', 'Desserts', 'Beverages'];
+const categories = ['All', 'Coffee & Tea', 'Small Plates', 'Large Plates', 'Burgers & Sandwiches', 'Viennoisserie', 'Desserts', 'Beverages'];
 
 const tagColors = {
   'Bestseller': 'bg-amber-700/30 text-amber-400 border-amber-600/30',
