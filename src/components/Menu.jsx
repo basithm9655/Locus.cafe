@@ -281,20 +281,21 @@ const Menu = () => {
         {/* Cart / Checkout Modal */}
         <AnimatePresence>
           {isCartOpen && (
-            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+            <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-6">
               <motion.div 
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 exit={{ opacity: 0 }} 
                 onClick={() => setIsCartOpen(false)}
-                className="absolute inset-0 bg-[#060302]/80 backdrop-blur-sm"
+                className="absolute inset-0 bg-[#060302]/85 backdrop-blur-sm"
               />
               
               <motion.div
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                className="bg-[#110a08] border border-white/10 rounded-3xl w-full max-w-lg shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative z-10 flex flex-col max-h-[85vh] overflow-hidden"
+                initial={{ y: '100%' }}
+                animate={{ y: 0 }}
+                exit={{ y: '100%' }}
+                transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+                className="bg-[#110a08] border-t sm:border border-white/10 rounded-t-3xl sm:rounded-3xl w-full max-w-lg shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative z-10 flex flex-col h-[85vh] sm:h-auto max-h-[85vh] sm:max-h-[80vh] overflow-hidden"
               >
                 {/* Modal Header */}
                 <div className="flex justify-between items-center p-6 border-b border-white/10 bg-[#1a100c]">
