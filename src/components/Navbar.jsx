@@ -5,6 +5,7 @@ import { X, AlignRight } from 'lucide-react';
 const navLinks = [
   { label: 'Menu',       href: 'menu' },
   { label: 'Experience', href: 'experience' },
+  { label: 'Reservation', href: 'reservation' },
   { label: 'Location',   href: 'location' },
 ];
 
