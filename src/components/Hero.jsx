@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDown, Coffee, Award, Star, Clock, MapPin } from 'lucide-react';
+import { ArrowDown, Coffee, Award, Star, Clock, Calendar } from 'lucide-react';
 
 const Hero = () => {
   const containerRef = useRef(null);
@@ -138,11 +138,11 @@ const Hero = () => {
           </button>
 
           <button
-            onClick={() => document.getElementById('location')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('reservation')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 text-cafe-cream/60 text-xs font-medium tracking-wide hover:border-cafe-main/40 hover:text-cafe-cream hover:bg-white/5 transition-all duration-300 backdrop-blur-sm"
           >
-            <MapPin size={12} className="text-cafe-main" strokeWidth={2} />
-            Peelamedu, Coimbatore
+            <Calendar size={12} className="text-cafe-main" strokeWidth={2} />
+            Book a Table
           </button>
         </motion.div>
       </motion.div>
