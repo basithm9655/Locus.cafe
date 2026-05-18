@@ -15,6 +15,7 @@
 
 const RESERVATION_SHEET_NAME = "RESERVATIONS"; // Make sure this matches your Reservation sheet tab
 const ORDERS_SHEET_NAME = "ORDERS"; // Make sure you have a sheet tab named "ORDERS" for the billing/kitchen
+const MENU_SHEET_NAME = "MENU"; // Make sure you have a sheet tab named "MENU" for the item lists
 
 function doGet(e) {
   try {
@@ -23,8 +24,12 @@ function doGet(e) {
     if (action === 'getDashboardData') {
       return ContentService.createTextOutput(JSON.stringify({
         reservations: getReservations(),
-        orders: getOrders()
+        orders: getOrders(),
+        menu: getMenu()
       })).setMimeType(ContentService.MimeType.JSON);
+    } else if (action === 'getMenu') {
+      return ContentService.createTextOutput(JSON.stringify(getMenu()))
+        .setMimeType(ContentService.MimeType.JSON);
     }
     
     return ContentService.createTextOutput(JSON.stringify({ error: 'Invalid action' })).setMimeType(ContentService.MimeType.JSON);
@@ -115,6 +120,34 @@ function getOrders() {
     });
   }
   return orders.reverse(); // Newest first
+}
+
+function getMenu() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(MENU_SHEET_NAME);
+  if (!sheet) return [];
+  
+  const data = sheet.getDataRange().getDisplayValues();
+  const menuItems = [];
+  
+  // Columns: A=id, B=name, C=price, D=image, E=status, F=stock, G=category
+  for (let i = 1; i < data.length; i++) {
+    const row = data[i];
+    if (!row[0]) continue;
+    
+    // Skip if marked as inactive
+    if (row[4] && row[4].toLowerCase() === 'inactive') continue;
+    
+    menuItems.push({
+      id: parseInt(row[0]) || i,
+      name: row[1] || '',
+      price: parseFloat(row[2]) || 0,
+      img: row[3] || '/coffee.png',
+      status: row[4] || 'Active',
+      inStock: row[5] ? (row[5].toLowerCase() !== 'out of stock' && row[5] !== '0') : true,
+      category: row[6] || 'Other'
+    });
+  }
+  return menuItems;
 }
 
 function updateOrderStatus(data) {

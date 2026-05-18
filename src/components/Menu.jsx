@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Plus, Minus, ShoppingBag, X, CheckCircle2, User, Hash } from 'lucide-react';
-import menuItems from '../data/menu.json';
+import localMenuItems from '../data/menu.json';
 
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxLjFkHCq85bgUsFcVGflzvDCS4Fc30bGW0xK5aXVGBvMNAD6-XXvdDLhLWjCDqzoF2/exec";
 
@@ -24,6 +24,7 @@ const cardVariants = {
 
 const Menu = () => {
   const [activeCat, setActiveCat] = useState('All');
+  const [items, setItems] = useState(localMenuItems);
   const [cart, setCart] = useState({});
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [tableNo, setTableNo] = useState('');
@@ -43,9 +44,38 @@ const Menu = () => {
     if (table) {
       setTableNo(table);
     }
+
+    // Dynamic Menu fetch from Google Sheets with intelligent fallback merging
+    const fetchMenu = async () => {
+      if (!SCRIPT_URL) return;
+      try {
+        const res = await fetch(`${SCRIPT_URL}?action=getMenu`);
+        const data = await res.json();
+        if (data && data.length > 0) {
+          const merged = data.map(item => {
+            const localMatch = localMenuItems.find(l => l.name.toLowerCase() === item.name.toLowerCase() || l.id === item.id);
+            return {
+              id: item.id,
+              category: item.category || (localMatch ? localMatch.category : 'Other'),
+              name: item.name,
+              price: item.price,
+              desc: localMatch ? localMatch.desc : "Premium selection from our cafe menu.",
+              isVeg: localMatch ? localMatch.isVeg : true,
+              tag: localMatch ? localMatch.tag : (item.status === 'Featured' ? 'Featured' : null),
+              img: item.img || (localMatch ? localMatch.img : "/coffee.png"),
+              inStock: item.inStock
+            };
+          });
+          setItems(merged);
+        }
+      } catch (err) {
+        console.error("Failed to load dynamic menu, using local fallback.", err);
+      }
+    };
+    fetchMenu();
   }, []);
 
-  const filtered = activeCat === 'All' ? menuItems : menuItems.filter(i => i.category === activeCat);
+  const filtered = activeCat === 'All' ? items : items.filter(i => i.category === activeCat);
 
   // Cart Functions
   const addToCart = (item) => {
