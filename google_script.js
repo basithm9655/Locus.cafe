@@ -13,8 +13,8 @@
  * 10. Paste the URL into the SCRIPT_URL variable in KitchenDashboard.jsx & ReceptionDashboard.jsx.
  */
 
-const RESERVATION_SHEET_NAME = "Form Responses 1"; // Make sure this matches your Reservation sheet tab
-const ORDERS_SHEET_NAME = "Orders"; // Make sure you have a sheet tab named "Orders" for the billing/kitchen
+const RESERVATION_SHEET_NAME = "RESERVATIONS"; // Make sure this matches your Reservation sheet tab
+const ORDERS_SHEET_NAME = "ORDERS"; // Make sure you have a sheet tab named "ORDERS" for the billing/kitchen
 
 function doGet(e) {
   try {
@@ -56,9 +56,11 @@ function createOrder(data) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ORDERS_SHEET_NAME);
   if (!sheet) return ContentService.createTextOutput(JSON.stringify({ success: false, error: 'Sheet not found' })).setMimeType(ContentService.MimeType.JSON);
   
-  const timestamp = new Date().toISOString();
-  // Columns: A=Timestamp, B=Table, C=Items, D=Total, E=Status, F=PaidStatus, G=CustomerName
-  sheet.appendRow([timestamp, data.tableNo || 'Walk-in', data.items, data.totalAmount, 'New', 'Unpaid', data.name || '']);
+  // Generate a random unique 6-digit number for order_id
+  const orderId = "ORD-" + Math.floor(100000 + Math.random() * 900000);
+  
+  // Columns: A=order_id, B=items, C=total, D=table, E=status, F=paid
+  sheet.appendRow([orderId, data.items, data.totalAmount, data.tableNo || 'Walk-in', 'New', 'Unpaid']);
   
   return ContentService.createTextOutput(JSON.stringify({ success: true })).setMimeType(ContentService.MimeType.JSON);
 }
@@ -82,7 +84,8 @@ function getReservations() {
       people: row[3] || '',
       date: row[4] || '',
       time: row[5] || '',
-      tableNo: row[6] || ''
+      tableNo: row[6] || '',
+      email: row[7] || ''
     });
   }
   return reservations.reverse(); // Newest first
@@ -95,7 +98,7 @@ function getOrders() {
   const data = sheet.getDataRange().getDisplayValues();
   const orders = [];
   
-  // Assuming Columns: A=Timestamp, B=Table, C=Items, D=Total, E=Status, F=PaidStatus
+  // Columns: A=order_id, B=items, C=total, D=table, E=status, F=paid
   // Start from row 1 (skipping header row 0)
   for (let i = 1; i < data.length; i++) {
     const row = data[i];
@@ -103,10 +106,10 @@ function getOrders() {
     
     orders.push({
       rowId: i + 1, // Store the exact row number for updates
-      timestamp: row[0] || '',
-      tableNo: row[1] || '',
-      items: row[2] || '',
-      totalAmount: row[3] || '',
+      timestamp: row[0] || '', // Using order_id as timestamp to display it nicely in UI
+      tableNo: row[3] || '',
+      items: row[1] || '',
+      totalAmount: row[2] || '',
       status: row[4] || 'New',
       paidStatus: row[5] || 'Unpaid'
     });
@@ -157,15 +160,16 @@ function doOptions(e) {
  */
 function onFormSubmit(e) {
   try {
-    const responses = e.namedValues;
-    if (!responses) return;
+    const row = e.values;
+    if (!row) return;
     
-    // Extract fields (using Google Form header names)
-    const email = responses['Email'] ? responses['Email'][0] : null;
-    const name = responses['Name'] ? responses['Name'][0] : 'Guest';
-    const date = responses['DATE'] ? responses['DATE'][0] : '';
-    const time = responses['TIME'] ? responses['TIME'][0] : '';
-    const tableNo = responses['TABLE NO'] ? responses['TABLE NO'][0] : 'Not specified';
+    // Extract fields based on exact columns provided:
+    // A(0): Timestamp, B(1): Name, C(2): Phone, D(3): People, E(4): Date, F(5): Time, G(6): Table No, H(7): Email
+    const name    = row[1] || 'Guest';
+    const date    = row[4] || '';
+    const time    = row[5] || '';
+    const tableNo = row[6] || 'Not specified';
+    const email   = row[7] || null;
     
     if (email) {
       const subject = "Reservation Confirmed - Cafe Locus";
