@@ -145,3 +145,35 @@ function doOptions(e) {
   return ContentService.createTextOutput("")
     .setMimeType(ContentService.MimeType.JSON);
 }
+
+/**
+ * Trigger this function on Form Submit to send a confirmation email.
+ * 1. Go to Triggers (the clock icon on the left panel in Apps Script)
+ * 2. Click "Add Trigger"
+ * 3. Choose which function to run: onFormSubmit
+ * 4. Select event source: From spreadsheet
+ * 5. Select event type: On form submit
+ * 6. Save!
+ */
+function onFormSubmit(e) {
+  try {
+    const responses = e.namedValues;
+    if (!responses) return;
+    
+    // Extract fields (using Google Form header names)
+    const email = responses['Email'] ? responses['Email'][0] : null;
+    const name = responses['Name'] ? responses['Name'][0] : 'Guest';
+    const date = responses['DATE'] ? responses['DATE'][0] : '';
+    const time = responses['TIME'] ? responses['TIME'][0] : '';
+    const tableNo = responses['TABLE NO'] ? responses['TABLE NO'][0] : 'Not specified';
+    
+    if (email) {
+      const subject = "Reservation Confirmed - Cafe Locus";
+      const body = `Hi ${name},\n\nYour reservation at Cafe Locus is confirmed!\n\nDate: ${date}\nTime: ${time}\nTable No: ${tableNo}\n\nWe look forward to hosting you.\n\nBest,\nThe Cafe Locus Team`;
+      
+      MailApp.sendEmail(email, subject, body);
+    }
+  } catch (error) {
+    console.error("Error sending email:", error);
+  }
+}

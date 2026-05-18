@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Users, User, Phone, CheckCircle2, MapPin } from 'lucide-react';
+import { Calendar, Clock, Users, User, Phone, CheckCircle2, MapPin, Mail } from 'lucide-react';
 
 const Reservation = () => {
   const [status, setStatus] = useState('idle'); // idle, submitting, success
@@ -99,7 +99,7 @@ const Reservation = () => {
                   </div>
                   <h3 className="text-2xl text-cafe-cream mb-2">Reservation Requested</h3>
                   <p className="text-cafe-cream/70">
-                    Thank you! We've received your request and will prepare your table. See you soon!
+                    Thank you! We've received your request. A confirmation email will be sent shortly!
                   </p>
                 </motion.div>
               ) : (
@@ -123,6 +123,21 @@ const Reservation = () => {
                           required
                           className="w-full bg-black/20 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-cafe-cream focus:outline-none focus:border-cafe-main transition-colors placeholder:text-cafe-cream/30"
                           placeholder="Your Name"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <label className="text-sm text-cafe-cream/70 uppercase tracking-wider">Email</label>
+                      <div className="relative">
+                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-cafe-cream/40" />
+                        <input 
+                          type="email" 
+                          name="entry.1611942278" 
+                          required
+                          className="w-full bg-black/20 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-cafe-cream focus:outline-none focus:border-cafe-main transition-colors placeholder:text-cafe-cream/30"
+                          placeholder="your@email.com"
                         />
                       </div>
                     </div>
