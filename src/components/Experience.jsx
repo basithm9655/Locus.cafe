@@ -63,10 +63,10 @@ const Experience = () => {
               <div className="w-12 h-[1px] bg-cafe-main/40 mb-10" />
 
               <p className="text-cafe-beige/70 text-lg mb-5 leading-relaxed font-light">
-                Inspired by modern Japanese minimal cafes, Locus is designed to be your calm within the chaos. Earthy tones, warm ambient lighting, and generous spacing create an environment that feels both luxurious and intimate.
+                Inspired by modern minimalist architecture, Cafe Locus is the premier <strong className="text-cafe-cream">Aesthetic Cafe in Coimbatore</strong>. Designed as a calm sanctuary near Nava India Road and Avinashi Road (just a stone's throw from Kidss Talk), it blends earthy, warm-ambient luxury with pet-friendly outdoor spaces where you can relax, socialize, or comfortably remote work.
               </p>
               <p className="text-cafe-beige/40 leading-relaxed font-light mb-12 text-base">
-                Whether you're here for deep work, a casual date, or simply to savour our meticulously crafted coffee, every corner is curated for your comfort.
+                Our boutique bakehouse crafts fresh daily selections of <strong className="text-cafe-cream">Continental cuisine</strong> and authentic <strong className="text-cafe-cream">Vietnamese food in Coimbatore</strong>. Whether you are craving our signature Basque Cheesecake, Pumpkin Scallion Wontons, a Milo Iced Latte, or our celebrated Aubergine Sando, every single recipe is prepared to deliver absolute gastronomic perfection.
               </p>
 
               <button className="group relative overflow-hidden flex items-center gap-6 px-10 py-4 border border-cafe-main/30 rounded-full text-cafe-cream text-xs uppercase tracking-[0.2em] hover:border-cafe-main transition-all duration-500">
