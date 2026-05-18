@@ -42,12 +42,25 @@ function doPost(e) {
       return updateOrderStatus(data);
     } else if (action === 'updatePaymentStatus') {
       return updatePaymentStatus(data);
+    } else if (action === 'createOrder') {
+      return createOrder(data);
     }
     
     return ContentService.createTextOutput(JSON.stringify({ success: false, error: 'Invalid action' })).setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
     return ContentService.createTextOutput(JSON.stringify({ success: false, error: error.toString() })).setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+function createOrder(data) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ORDERS_SHEET_NAME);
+  if (!sheet) return ContentService.createTextOutput(JSON.stringify({ success: false, error: 'Sheet not found' })).setMimeType(ContentService.MimeType.JSON);
+  
+  const timestamp = new Date().toISOString();
+  // Columns: A=Timestamp, B=Table, C=Items, D=Total, E=Status, F=PaidStatus, G=CustomerName
+  sheet.appendRow([timestamp, data.tableNo || 'Walk-in', data.items, data.totalAmount, 'New', 'Unpaid', data.name || '']);
+  
+  return ContentService.createTextOutput(JSON.stringify({ success: true })).setMimeType(ContentService.MimeType.JSON);
 }
 
 function getReservations() {
