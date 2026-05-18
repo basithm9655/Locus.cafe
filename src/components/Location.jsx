@@ -72,7 +72,7 @@ const Location = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              href="https://maps.google.com"
+              href="https://www.google.com/maps/dir/?api=1&destination=123+Avinashi+Road,+Near+Hope+College,+Peelamedu,+Coimbatore"
               target="_blank"
               rel="noopener noreferrer"
               className="group mt-2 self-start inline-flex items-center gap-3 px-7 sm:px-8 py-3.5 bg-cafe-cream text-cafe-dark text-xs font-semibold tracking-[0.12em] uppercase rounded-full hover:bg-white transition-colors duration-300 hover:scale-105 active:scale-95 transform"
