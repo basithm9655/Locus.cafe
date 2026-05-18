@@ -68,16 +68,7 @@ const Hero = () => {
         style={{ y: yContent, opacity: fadeOut }}
         className="relative z-10 w-full flex flex-col items-center text-center px-5 pt-16 pb-10"
       >
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 2.3, ease: 'easeOut' }}
-          className="mb-5 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-black/30 backdrop-blur-md text-cafe-beige/70"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-cafe-main animate-pulse flex-shrink-0" />
-          <span className="text-[9px] sm:text-[10px] tracking-[0.22em] uppercase font-medium">Now Open · Autumn Blend 2025</span>
-        </motion.div>
+
 
         {/* Logo */}
         <motion.div
